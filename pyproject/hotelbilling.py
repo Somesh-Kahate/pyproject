@@ -4,6 +4,7 @@ name = ""
 s = 0
 t=0
 d=0
+j=0
 
 
 def userName():
@@ -37,7 +38,7 @@ def takeCash():
 
 
 def cupsOrPlats(c):
-    if c == 1 or c == 3:
+    if c == 1 or c == 3 or c==4:
         return "plats:"
     if c == 2:
         return "cups:"
@@ -56,6 +57,9 @@ def printBill():
         i += 1
     if d!=0:
         print(i, "\t|\tDosa\t|\t",d,"\t|\t35\t|\t",d*35)
+        i += 1
+    if j!=0:
+        print(i, "\t|\tDosa\t|\t",d,"\t|\t35\t|\t",d*20)
         i += 1
     print("------------------------------------------------------------------------------------")
     print("                                                         total :", total)
@@ -88,6 +92,10 @@ def order(c):
         print("you have ordered Dosa")
         global d
         d +=takingOrder(c, 35)
+    elif c == 4:
+        print("you have ordered Idli")
+        global j
+        j +=takingOrder(c, 20)
     elif c == 0:
         print("you select Exit")
         printBill()
@@ -102,13 +110,12 @@ def menu():
             1.Samosa 20/-
             2.Tea    10/-
             3.Dosa   35/-
+            4.Idli   20/-
             0.Exit
           ''')
     c = int(input("choice :"))
     # print("your",c)
     order(c)
-
-
 def main():
     print("# Welcome to Somesh Hotel")
     userName()
